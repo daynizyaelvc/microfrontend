@@ -1,11 +1,16 @@
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { InicioComponent } from './inicio/inicio.component';
+import { NgModule } from '@angular/core';
 const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'inicio' },
   {
     path: 'inicio',
     component: InicioComponent,
+  },
+  {
+    path: 'perfilador',
+    loadChildren: () =>
+      import('./perfilador/perfilador.module').then((m) => m.PerfiladorModule),
   },
   /*{
     path: 'octava-temporal',
